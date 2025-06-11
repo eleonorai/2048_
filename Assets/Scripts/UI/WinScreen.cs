@@ -31,8 +31,8 @@ namespace UI
             
             _bonusButtonsScreen.SetActive(false);
 
-            _scoreText.text = $"SCORE: {GameScore.Instance.ScoreValue}";
-            _highScoreText.text = $"HIGHSCORE: {GameScore.Instance.HighScoreValue}";
+            _scoreText.text = $"Your final score: {GameScore.Instance.ScoreValue}";
+            _highScoreText.text = $"All-time best: {GameScore.Instance.HighScoreValue}";
         }
 
         private void EnableCanvasGroup(CanvasGroup canvasGroup, float alpha, bool interactable, bool blockRaycasts)

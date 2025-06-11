@@ -6,29 +6,41 @@ namespace Cube.Merger
     {
         private const int _lives = 5;
         private int _livesCounter = _lives;
-        
+
         public override void MergeCube(CubeUnit self, CubeUnit other)
         {
-            if (_livesCounter > 1)
+            if (HasExtraLives())
             {
-                EnableMergeCube(other, false);
-                
-                AddMergeValueToScore(other);
-                    
-                TossMergeCube(self);
-
-                _livesCounter--;
+                ProcessPartialMerge(self, other);
             }
             else
             {
-                EnableMergeCube(self, false);
-                    
-                AddMergeValueToScore(other);
-                    
-                other.CubeMerger.InvokeCubeMerged(other.CubeNumber * (int)Mathf.Pow(2, _lives));
-                    
-                TossMergeCube(other);
+                ProcessFinalMerge(self, other);
             }
+        }
+
+        private bool HasExtraLives()
+        {
+            return _livesCounter > 1;
+        }
+
+        private void ProcessPartialMerge(CubeUnit self, CubeUnit other)
+        {
+            EnableMergeCube(other, false);
+            AddMergeValueToScore(other);
+            TossMergeCube(self);
+            _livesCounter--;
+        }
+
+        private void ProcessFinalMerge(CubeUnit self, CubeUnit other)
+        {
+            EnableMergeCube(self, false);
+            AddMergeValueToScore(other);
+
+            int finalValue = other.CubeNumber * (int)Mathf.Pow(2, _lives);
+            other.CubeMerger.InvokeCubeMerged(finalValue);
+
+            TossMergeCube(other);
         }
     }
 }
