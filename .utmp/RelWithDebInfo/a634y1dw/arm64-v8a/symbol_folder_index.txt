@@ -1,1 +1,0 @@
-C:\Users\nikit\Desktop\Programming\2048\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\a634y1dw\obj\arm64-v8a
