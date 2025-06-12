@@ -2,8 +2,9 @@
 /Library/
 /Temp/
 /Obj/
-/Builds/
 /Logs/
 /UserSettings/
 /MemoryCaptures/
 /Library/PackageCache/
+*.utmp
+.idea/
